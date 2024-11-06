@@ -13,7 +13,7 @@ class GildedRose {
         }
     }
 
-    private static void updateItem(Item item) {
+    private void updateItem(Item item) {
         updateQuality(item);
         updateExpiration(item);
         if (isExpired(item)) {
@@ -21,28 +21,19 @@ class GildedRose {
         }
     }
 
-    private static void updateQuality(Item item) {
+    private void updateQuality(Item item) {
         if (item.name.equals("Aged Brie")) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
+            increaseQuality(item);
         }
         else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
+            increaseQuality(item);
 
+            if (item.sellIn < 11) {
+                increaseQuality(item);
+            }
 
-                if (item.sellIn < 11) {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
-                }
-
-                if (item.sellIn < 6) {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
-                }
+            if (item.sellIn < 6) {
+                increaseQuality(item);
             }
         }
         else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
@@ -53,31 +44,36 @@ class GildedRose {
         }
     }
 
-    private static void updateExpiration(Item item) {
-        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            item.sellIn = item.sellIn - 1;
+    private void updateExpiration(Item item) {
+        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+            return;
         }
+        item.sellIn--;
     }
     
-    private static boolean isExpired(Item item) {
+    private boolean isExpired(Item item) {
         return item.sellIn < 0;
     }
 
-    private static void processExpired(Item item) {
-        if (!item.name.equals("Aged Brie")) {
-            if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+    private void processExpired(Item item) {
+        if (item.name.equals("Aged Brie")) {
+            increaseQuality(item);
+        }
+        else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            item.quality = 0;
+        }
+        else {
+            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
                 if (item.quality > 0) {
-                    if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        item.quality = item.quality - 1;
-                    }
+                    item.quality = item.quality - 1;
                 }
-            } else {
-                item.quality = 0;
             }
-        } else {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
+        }
+    }
+
+    private void increaseQuality(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
         }
     }
 }
