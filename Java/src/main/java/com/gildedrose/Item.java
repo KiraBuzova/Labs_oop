@@ -1,14 +1,30 @@
 package com.gildedrose;
 
 public class Item {
-    public ItemName name;
-    public ExpirationDate expirationDate;
-    public Quality quality;
+    private final ItemName name;
+    private final ExpirationDate expirationDate;
+    private Quality quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = new ItemName(name);
         this.expirationDate = new ExpirationDate(sellIn);
         this.quality = new Quality(quality);
+    }
+
+    public ItemName getName() {
+        return name;
+    }
+
+    public ExpirationDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public Quality getQuality() {
+        return quality;
+    }
+
+    public void setQuality(Quality quality) {
+        this.quality = quality;
     }
 
     @Override

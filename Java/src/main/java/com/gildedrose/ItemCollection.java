@@ -7,15 +7,15 @@ import java.util.List;
 public class ItemCollection {
     private final List<Item> items;
 
-    public ItemCollection(Item[] items) {
-        this.items = new ArrayList<>();
-        Collections.addAll(this.items, items);
+    public ItemCollection(Item[] itemsArray) {
+        items = new ArrayList<>();
+        Collections.addAll(items, itemsArray);
     }
 
     public void updateAll() {
         for (Item item : items) {
-            InventoryItem.create(item).dailyUpdate();
+            InventoryItem inventoryItem = InventoryItem.create(item);
+            inventoryItem.dailyUpdate();
         }
     }
-
 }

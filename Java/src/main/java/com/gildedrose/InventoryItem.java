@@ -4,18 +4,20 @@ public class InventoryItem {
     protected Item item;
 
     public static InventoryItem create(Item item) {
-        if (item.name.equals(new ItemName(AgedBrie.NAME))) {
+        ItemName itemName = item.getName();
+
+        if (itemName.equals(new ItemName(AgedBrie.NAME))) {
             return new AgedBrie(item);
         }
-        if (item.name.equals(new ItemName(BackstagePasses.NAME))) {
+        if (itemName.equals(new ItemName(BackstagePasses.NAME))) {
             return new BackstagePasses(item);
         }
-        if (item.name.equals(new ItemName(Sulfuras.NAME))) {
+        if (itemName.equals(new ItemName(Sulfuras.NAME))) {
             return new Sulfuras(item);
         }
         return new InventoryItem(item);
     }
-    
+
     public InventoryItem(Item item) {
         this.item = item;
     }
@@ -33,11 +35,13 @@ public class InventoryItem {
     }
 
     protected void updateExpiration() {
-        item.expirationDate.decrease();
+        ExpirationDate expirationDate = item.getExpirationDate();
+        expirationDate.decrease();
     }
 
     protected boolean isExpired() {
-        return item.expirationDate.isExpired();
+        ExpirationDate expirationDate = item.getExpirationDate();
+        return expirationDate.isExpired();
     }
 
     protected void processExpired() {
@@ -45,10 +49,12 @@ public class InventoryItem {
     }
 
     protected void increaseQuality() {
-        item.quality.increase();
+        Quality quality = item.getQuality();
+        quality.increase();
     }
 
     protected void decreaseQuality() {
-        item.quality.decrease();
+        Quality quality = item.getQuality();
+        quality.decrease();
     }
 }

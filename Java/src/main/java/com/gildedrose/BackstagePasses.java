@@ -11,17 +11,18 @@ public class BackstagePasses extends InventoryItem {
     protected void updateQuality() {
         increaseQuality();
 
-        if (item.expirationDate.getDays() < 11) {
+        ExpirationDate expirationDate = item.getExpirationDate();
+        if (expirationDate.getDays() < 11) {
             increaseQuality();
         }
 
-        if (item.expirationDate.getDays() < 6) {
+        if (expirationDate.getDays() < 6) {
             increaseQuality();
         }
     }
 
     @Override
     protected void processExpired() {
-        item.quality = new Quality(0);
+        item.setQuality(new Quality(0));
     }
 }
