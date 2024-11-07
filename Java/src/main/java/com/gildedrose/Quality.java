@@ -1,25 +1,25 @@
 package com.gildedrose;
 
 public class Quality {
-    private int value;
+    private final IntValue value;
 
     public Quality(int value) {
-        this.value = value;
+        this.value = new IntValue(value);
     }
 
     public void increase() {
-        if (value < 50) {
-            value++;
+        if (value.get() < 50) {
+            value.set(value.get() + 1);
         }
     }
 
     public void decrease() {
-        if (value > 0) {
-            value--;
+        if (value.get() > 0) {
+            value.set(value.get() - 1);
         }
     }
 
     public int getValue() {
-        return value;
+        return value.get();
     }
 }

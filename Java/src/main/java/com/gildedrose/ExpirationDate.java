@@ -1,21 +1,21 @@
 package com.gildedrose;
 
 public class ExpirationDate {
-    private int days;
+    private final IntValue days;
 
     public ExpirationDate(int days) {
-        this.days = days;
+        this.days = new IntValue(days);
     }
 
     public void decrease() {
-        days--;
+        days.set(days.get() - 1);
     }
 
     public boolean isExpired() {
-        return days < 0;
+        return days.get() < 0;
     }
 
     public int getDays() {
-        return days;
+        return days.get();
     }
 }
