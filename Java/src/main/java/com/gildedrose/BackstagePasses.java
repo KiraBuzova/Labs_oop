@@ -11,11 +11,11 @@ public class BackstagePasses extends InventoryItem {
     protected void updateQuality() {
         increaseQuality();
 
-        if (item.sellIn < 11) {
+        if (item.expirationDate.getDays() < 11) {
             increaseQuality();
         }
 
-        if (item.sellIn < 6) {
+        if (item.expirationDate.getDays() < 6) {
             increaseQuality();
         }
     }

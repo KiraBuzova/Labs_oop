@@ -33,11 +33,11 @@ public class InventoryItem {
     }
 
     protected void updateExpiration() {
-        item.sellIn--;
+        item.expirationDate.decrease();
     }
 
     protected boolean isExpired() {
-        return item.sellIn < 0;
+        return item.expirationDate.isExpired();
     }
 
     protected void processExpired() {

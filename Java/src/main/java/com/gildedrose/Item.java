@@ -4,18 +4,18 @@ public class Item {
 
     public String name;
 
-    public int sellIn;
+    public ExpirationDate expirationDate;
 
     public Quality quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = name;
-        this.sellIn = sellIn;
+        this.expirationDate = new ExpirationDate(sellIn);
         this.quality = new Quality(quality);
     }
 
     @Override
     public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality.getValue();
+        return this.name + ", " + expirationDate.getDays() + ", " + this.quality.getValue();
     }
 }
