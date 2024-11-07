@@ -1,15 +1,13 @@
 package com.gildedrose;
 
 class GildedRose {
-    Item[] items;
+    private final ItemCollection itemCollection;
 
     public GildedRose(Item[] items) {
-        this.items = items;
+        this.itemCollection = new ItemCollection(items);
     }
 
     public void updateInventory() {
-        for (Item item : items) {
-            InventoryItem.create(item).dailyUpdate();
-        }
+        itemCollection.updateAll();
     }
 }
