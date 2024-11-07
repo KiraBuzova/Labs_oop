@@ -4,13 +4,13 @@ public class InventoryItem {
     protected Item item;
 
     public static InventoryItem create(Item item) {
-        if (item.name.equals(AgedBrie.NAME))  {
+        if (item.name.equals(new ItemName(AgedBrie.NAME))) {
             return new AgedBrie(item);
         }
-        if (item.name.equals(BackstagePasses.NAME))  {
+        if (item.name.equals(new ItemName(BackstagePasses.NAME))) {
             return new BackstagePasses(item);
         }
-        if (item.name.equals(Sulfuras.NAME))  {
+        if (item.name.equals(new ItemName(Sulfuras.NAME))) {
             return new Sulfuras(item);
         }
         return new InventoryItem(item);
