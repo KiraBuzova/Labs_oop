@@ -1,19 +1,23 @@
 package org.processing;
 
-import filters.BlackAndWhiteFilterFactory;
-import filters.BlurFilterFactory;
-import filters.BrightnessFilterFactory;
+import processors.BlackAndWhiteProcessor;
+import processors.BlurProcessor;
+import processors.BrightnessProcessor;
+import processors.Processor;
 
 public class ImageProcessingApp {
     public static void main(String[] args) {
-        ColorCorrection colorCorrection = new BasicColorCorrection();
-        ImageResizer imageResizer = new BasicImageResizer();
-        ImageProcessor processor = new ImageProcessor(colorCorrection, imageResizer);
-
         String imagePath = "example.jpg";
 
-        processor.processImage(imagePath, new BlackAndWhiteFilterFactory(), 800, 600);
-        processor.processImage(imagePath, new BlurFilterFactory(), 1024, 768);
-        processor.processImage(imagePath, new BrightnessFilterFactory(), 1280, 720);
+        Processor[] factories = {
+                new BlackAndWhiteProcessor(),
+                new BlurProcessor(),
+                new BrightnessProcessor()
+        };
+
+        for (Processor factory : factories) {
+            ImageProcessor processor = factory.createProcessor();
+            processor.processImage(imagePath);
+        }
     }
 }
