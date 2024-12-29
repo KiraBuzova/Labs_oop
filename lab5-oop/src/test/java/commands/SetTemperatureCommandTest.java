@@ -1,6 +1,9 @@
 package commands;
 
 import org.junit.jupiter.api.Test;
+import subsystems.TemperatureSubsystem;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SetTemperatureCommandTest {
     @Test
@@ -15,4 +18,3 @@ public class SetTemperatureCommandTest {
         assertEquals(0, temperature.getTemperature());
     }
 }
-
