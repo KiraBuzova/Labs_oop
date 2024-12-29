@@ -1,6 +1,6 @@
-package commands;
+package smartHome.commands;
 
-import subsystems.LightingSubsystem;
+import smartHome.subsystems.LightingSubsystem;
 
 public class TurnOnLightCommand implements Command {
     private final LightingSubsystem lighting;

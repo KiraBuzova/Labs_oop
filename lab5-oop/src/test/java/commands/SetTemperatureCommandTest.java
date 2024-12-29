@@ -1,7 +1,8 @@
 package commands;
 
 import org.junit.jupiter.api.Test;
-import subsystems.TemperatureSubsystem;
+import smartHome.commands.SetTemperatureCommand;
+import smartHome.subsystems.TemperatureSubsystem;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,5 +1,11 @@
+package subsystems;
+
 import org.junit.jupiter.api.Test;
-import subsystems.*;
+import smartHome.SmartHomeFacade;
+import smartHome.subsystems.LightingSubsystem;
+import smartHome.subsystems.SecuritySubsystem;
+import smartHome.subsystems.TemperatureSubsystem;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SmartHomeFacadeTest {

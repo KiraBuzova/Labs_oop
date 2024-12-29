@@ -1,4 +1,6 @@
-import commands.Command;
+package smartHome;
+
+import smartHome.commands.Command;
 import java.util.Stack;
 
 public class CommandInvoker {

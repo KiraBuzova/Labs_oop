@@ -1,6 +1,6 @@
-package commands;
+package smartHome.commands;
 
-import subsystems.TemperatureSubsystem;
+import smartHome.subsystems.TemperatureSubsystem;
 
 public class SetTemperatureCommand implements Command {
     private final TemperatureSubsystem temperature;

@@ -1,4 +1,4 @@
-package commands;
+package smartHome.commands;
 
 public interface Command {
     void execute();

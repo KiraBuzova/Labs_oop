@@ -1,4 +1,4 @@
-package subsystems;
+package smartHome.subsystems;
 
 public class TemperatureSubsystem {
     private int temperature;

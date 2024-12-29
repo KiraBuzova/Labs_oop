@@ -1,4 +1,4 @@
-package subsystems;
+package smartHome.subsystems;
 
 public class SecuritySubsystem {
     private boolean active;

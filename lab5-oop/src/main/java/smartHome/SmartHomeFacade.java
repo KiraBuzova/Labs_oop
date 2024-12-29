@@ -1,6 +1,8 @@
-import subsystems.LightingSubsystem;
-import subsystems.TemperatureSubsystem;
-import subsystems.SecuritySubsystem;
+package smartHome;
+
+import smartHome.subsystems.LightingSubsystem;
+import smartHome.subsystems.TemperatureSubsystem;
+import smartHome.subsystems.SecuritySubsystem;
 
 public class SmartHomeFacade {
     private final LightingSubsystem lighting;

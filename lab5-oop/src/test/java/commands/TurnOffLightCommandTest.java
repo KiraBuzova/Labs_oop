@@ -1,16 +1,18 @@
 package commands;
 
 import org.junit.jupiter.api.Test;
-import subsystems.LightingSubsystem;
+import smartHome.commands.TurnOffLightCommand;
+import smartHome.subsystems.LightingSubsystem;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TurnOffLightCommandTest {
     @Test
-    void testTurnOffLight() {
+    void testTurnOffLights() {
         LightingSubsystem lighting = new LightingSubsystem();
         TurnOffLightCommand command = new TurnOffLightCommand(lighting);
 
+        lighting.turnOn(); // Увімкнути перед тестом
         command.execute();
         assertFalse(lighting.isLightOn());
 

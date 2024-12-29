@@ -1,6 +1,10 @@
-import commands.*;
+package subsystems;
+
 import org.junit.jupiter.api.Test;
-import subsystems.*;
+import smartHome.CommandInvoker;
+import smartHome.commands.Command;
+import smartHome.commands.TurnOnLightCommand;
+import smartHome.subsystems.LightingSubsystem;
 
 import static org.junit.jupiter.api.Assertions.*;
 

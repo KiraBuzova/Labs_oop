@@ -1,6 +1,15 @@
-import commands.*;
+package subsystems;
+
 import org.junit.jupiter.api.Test;
-import subsystems.*;
+import smartHome.AutomationScenario;
+import smartHome.commands.TurnOnLightCommand;
+import smartHome.commands.TurnOffLightCommand;
+import smartHome.commands.SetTemperatureCommand;
+import smartHome.commands.ActivateSecurityCommand;
+import smartHome.commands.DeactivateSecurityCommand;
+import smartHome.subsystems.LightingSubsystem;
+import smartHome.subsystems.SecuritySubsystem;
+import smartHome.subsystems.TemperatureSubsystem;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,11 +23,11 @@ public class AutomationScenarioTest {
         SecuritySubsystem security = new SecuritySubsystem();
 
         // Створюємо команди
-        Command turnOnLights = new TurnOnLightCommand(lighting);
-        Command turnOffLights = new TurnOffLightCommand(lighting);
-        Command setTemperature = new SetTemperatureCommand(temperature, 22);
-        Command activateSecurity = new ActivateSecurityCommand(security);
-        Command deactivateSecurity = new DeactivateSecurityCommand(security);
+        TurnOnLightCommand turnOnLights = new TurnOnLightCommand(lighting);
+        TurnOffLightCommand turnOffLights = new TurnOffLightCommand(lighting);
+        SetTemperatureCommand setTemperature = new SetTemperatureCommand(temperature, 22);
+        ActivateSecurityCommand activateSecurity = new ActivateSecurityCommand(security);
+        DeactivateSecurityCommand deactivateSecurity = new DeactivateSecurityCommand(security);
 
         // Створюємо сценарій автоматизації
         AutomationScenario scenario = new AutomationScenario();

@@ -1,6 +1,6 @@
-package commands;
+package smartHome.commands;
 
-import subsystems.SecuritySubsystem;
+import smartHome.subsystems.SecuritySubsystem;
 
 public class DeactivateSecurityCommand implements Command {
     private final SecuritySubsystem security;
