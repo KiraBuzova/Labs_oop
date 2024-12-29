@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import subsystems.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SmartHomeFacadeTest {
 
@@ -17,10 +19,17 @@ public class SmartHomeFacadeTest {
         facade.setTemperature(22);  // Встановлюємо температуру
         facade.activateSecurity();  // Активуємо безпеку
 
+        // Перевіряємо стан після виконання команд
+        assertTrue(lighting.isLightOn(), "Lights should be on.");
+        assertEquals(22, temperature.getTemperature(), "Temperature should be set to 22°C.");
+        assertTrue(security.isActive(), "Security system should be active.");
 
         // Виконуємо операції для вимкнення
         facade.turnOffLights();  // Вимикаємо освітлення
         facade.deactivateSecurity();  // Деактивуємо безпеку
 
+        // Перевіряємо стан після вимкнення
+        assertFalse(lighting.isLightOn(), "Lights should be off.");
+        assertFalse(security.isActive(), "Security system should be inactive.");
     }
 }
