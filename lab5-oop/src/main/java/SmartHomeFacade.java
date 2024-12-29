@@ -17,6 +17,10 @@ public class SmartHomeFacade {
         lighting.turnOn();
     }
 
+    public void turnOffLights() {
+        lighting.turnOff();
+    }
+
     public void setTemperature(int temp) {
         temperature.setTemperature(temp);
     }
