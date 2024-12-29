@@ -14,7 +14,8 @@ public class SetTemperatureCommand implements Command {
 
     @Override
     public void execute() {
-        temperature.setTemperature(0);
+        previousTemperature = temperature.getTemperature();
+        temperature.setTemperature(newTemperature);
     }
 
     @Override
