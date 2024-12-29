@@ -1,8 +1,10 @@
 package commands;
 
 import org.junit.jupiter.api.Test;
+import subsystems.SecuritySubsystem;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class ActivateSecurityCommandTest {
+public final class ActivateSecurityCommandTest {
     @Test
     void testActivateSecurity() {
         SecuritySubsystem security = new SecuritySubsystem();
