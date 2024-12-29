@@ -1,6 +1,9 @@
 package commands;
 
 import org.junit.jupiter.api.Test;
+import subsystems.LightingSubsystem;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TurnOffLightCommandTest {
     @Test
